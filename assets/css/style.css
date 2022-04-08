@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --primary-color: #D9EDFB;
+    --secondary-color: #1C85E8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Nunito;
+}
+
+/* Utils */
+.blue-background {
+    background-color: var(--primary-color);
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+/* Header */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.logo span {
+    font-size: 2.5em;
+    font-weight: 800;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li a {
+    padding: 1rem 2rem;
+    color: #000;
+    font-size: 1.25em;
+    display: block;
+    text-decoration: none;
+}
+
+.btn-header a {
+    padding: .75rem 2rem;
+    background-color: var(--secondary-color);
+    border-radius: 1rem;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.25em;
+    text-decoration: none;
+}
+
+/* Footer */
