@@ -163,3 +163,91 @@ form {
     font-weight: bold;
     color: #000 !important;
 }
+
+/* Area Populer */
+.bg-area-populer {
+    padding: 2rem 0;
+}
+
+.bg-area-populer h2 {
+    font-size: 2.5em;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.area-populer-card {
+    position: relative;
+    height: 100px;
+    border-radius: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.area-populer-card img {
+    object-fit: cover;
+    height: 100px;
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.area-populer-card span {
+    position: absolute;
+    display: flex;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    color: #fff;
+    font-size: 1.5em;
+    background-color: rgb(0, 0, 0, 0.5);
+    border-radius: 1rem;
+}
+
+.btn-area-populer {
+    background-color: var(--secondary-color);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.25em;
+    font-weight: bold;
+    border-radius: .5rem;
+    display: block;
+    padding: .5rem 0;
+    text-align: center;
+}
+
+/* Kos Kampus */
+.bg-kos-kampus {
+    padding: 2rem 0;
+}
+
+.bg-kos-kampus h2 {
+    font-size: 2.5em;
+    margin-bottom: 2rem;
+}
+
+.kos-kampus-card {
+    background-color: var(--primary-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 8px 8px 8px rgb(0, 0, 0, 0.1);
+    margin-bottom: 1.75rem;
+}
+
+.kos-kampus-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.kos-kampus-card h3 {
+    font-size: 2em;
+}
+
+.kos-kampus-text p {
+    font-size: 1.25em;
+}

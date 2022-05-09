@@ -63,3 +63,67 @@ nav ul li a {
 }
 
 /* Footer */
+footer {
+    background-color: #1f1f1f;
+    padding: 2rem 0;
+    color: #fff;
+}
+
+.footer-info h2 {
+    font-size: 3.5em;
+}
+
+.footer-info p {
+    width: 90%;
+    color: #999;
+    line-height: 1.7;
+}
+
+.footer-section h3 {
+    font-size: 1.5em;
+    margin-bottom: 1.5rem;
+}
+
+.footer-section ul {
+    margin-left: 1rem;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #ececec;
+    display: block;
+    padding: .25rem 0;
+}
+
+.footer-sosmed {
+    display: flex;
+}
+
+.footer-section i {
+    font-size: 2em;
+    display: block;
+    margin-right: 1rem;
+}
+
+footer hr {
+    height: 0;
+    border: 1px solid #333;
+    margin-top: 2rem;
+}
+
+.footer-copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 15px 0;
+}
+
+.footer-copyright span {
+    color: #999;
+}
+
+.footer-logo {
+    font-size: 1.25em;
+    color: #fff !important;
+    font-weight: bold;
+}
