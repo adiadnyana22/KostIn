@@ -1,0 +1,161 @@
+/* Banner */
+.bg-banner {
+    padding: 2rem 0 3rem;
+}
+
+.banner-search {
+    background-color: #fff;
+    box-shadow: 4px 4px 16px rgb(0, 0, 0, 0.25);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1.5rem;
+}
+
+.banner-search input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    outline: none;
+    border: 0;
+    background-color: #ececec;
+    border-radius: .5rem;
+    font-size: 1em;
+    margin-top: .25rem;
+}
+
+.banner-search label {
+    font-size: 1.25em;
+}
+
+.banner-search .harga {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-cari {
+    border-radius: 1rem;
+    background-color: var(--secondary-color);
+    color: #fff;
+    border: 0;
+    font-size: 1.25em;
+    font-weight: bold;
+    outline: none;
+    padding: 1rem 2rem;
+}
+
+.btn-cari i {
+    display: block;
+}
+
+/* Kos Search */
+.bg-kos-search {
+    padding: 1rem 0;
+}
+
+.bg-kos-search hr {
+    height: 0;
+    border: 1px solid var(--secondary-color);
+}
+
+.kos-search-card {
+    padding: 2rem 0 1.75rem;
+}
+
+.kos-search-img {
+    position: relative;
+    height: fit-content;
+}
+
+.kos-search-img img {
+    border-radius: 1rem;
+    height: 250px;
+    object-fit: cover;
+}
+
+.kos-search-category {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 5.5px;
+    right: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgb(0, 0, 0, 0.5), transparent);
+    display: flex;
+    align-items: flex-end;
+    padding: .75rem 1rem;
+    border-radius: 1rem;
+}
+
+.kos-search-category span {
+    background-color: var(--secondary-color);
+    padding: .5rem 2.5rem;
+    border-radius: .5rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.desc-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.desc-title h2 {
+    font-size: 2em;
+}
+
+.desc-title p {
+    color: #666;
+}
+
+.desc-title .icon {
+    font-size: 2em;
+    color: var(--secondary-color);
+}
+
+.kos-search-icon {
+    padding: 1.5rem 0 .5rem;
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.kos-search-icon > div {
+    background-color: var(--primary-color);
+    padding: .5rem 1.5rem;
+    color: var(--secondary-color);
+    border-radius: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kos-search-icon > div > i {
+    font-size: 1.25em;
+}
+
+.kos-search-icon > div > span {
+    color: #000;
+    padding-left: .5rem;
+}
+
+.kos-search-price {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 100%;
+    text-align: right;
+    font-weight: bold;
+}
+
+.kos-search-price .price {
+    font-size: 2.5em;
+    font-weight: bold;
+}

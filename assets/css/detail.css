@@ -1,0 +1,302 @@
+/* Detail Banner */
+.bg-detail-banner {
+    padding: 2rem 0 3rem;
+}
+
+.detail-img {
+    position: relative;
+    height: fit-content;
+}
+
+.detail-img img {
+    border-radius: 1rem;
+    height: 350px;
+    object-fit: cover;
+}
+
+.detail-category {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 5.5px;
+    right: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgb(0, 0, 0, 0.5), transparent);
+    display: flex;
+    align-items: flex-end;
+    padding: 1.25rem 1.75rem;
+    border-radius: 1rem;
+}
+
+.detail-category span {
+    background-color: var(--secondary-color);
+    padding: .5rem 3rem;
+    border-radius: .5rem;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+.detail-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-title h1 {
+    font-size: 2.25em;
+    margin: .5rem 0;
+}
+
+.detail-title p {
+    color: #666;
+    font-size: 1.25em;
+}
+
+.detail-title .icon {
+    font-size: 2.25em;
+    color: var(--secondary-color);
+}
+
+.detail-price {
+    display: flex;
+    justify-self: flex-start;
+    align-items: center;
+    margin: 2rem 0 1.5rem;
+}
+
+.detail-price .price {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.detail-price > span {
+    display: block;
+    margin-left: 1.25rem;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+form label {
+    margin-bottom: .25rem;
+    display: block;
+}
+
+form input, form select {
+    padding: .5rem 1.5rem;
+    border-radius: .5rem;
+    width: 100%;
+    border: 0;
+    font-size: 1em;
+}
+
+form button {
+    padding: .5rem 0;
+    width: 100%;
+    border-radius: .5rem;
+    margin-top: 1rem;
+    background-color: var(--secondary-color);
+    font-weight: bold;
+    color: #fff;
+    border: 1px solid var(--secondary-color);
+    font-size: 1.25em;
+}
+
+/* Image Carousel */
+.bg-img-carousel {
+    padding: 2rem 0;
+}
+
+.carousel-cell {
+    width: 20%;
+    margin-right: 1rem;
+}
+
+/* Fasilitas */
+.bg-fasilitas {
+    padding: 1rem 0;
+}
+
+.bg-fasilitas h2 {
+    font-size: 2.25em;
+}
+
+.bg-fasilitas h3 {
+    padding: 1rem 0 .25rem;
+}
+
+.fasilitas-icon {
+    display: flex;
+    gap: .75rem;
+    flex-wrap: wrap;
+    margin-bottom: .5rem;
+}
+
+.fasilitas-icon > div {
+    background-color: var(--primary-color);
+    padding: .5rem 2rem;
+    color: var(--secondary-color);
+    border-radius: 1rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fasilitas-icon > div > i {
+    font-size: 1.25em;
+}
+
+.fasilitas-icon > div > span {
+    color: #000;
+    padding-left: .5rem;
+}
+
+.ukuran-kamar {
+    text-align: center;
+}
+
+.ukuran-kamar img {
+    width: 50%;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.ukuran-kamar span {
+    font-size: 1.25em;
+    display: block;
+}
+
+.ukuran-kamar div {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* Lokasi */
+.bg-lokasi {
+    padding: 2rem 0;
+}
+
+.bg-lokasi h2 {
+    font-size: 2.25em;
+}
+
+.bg-lokasi p {
+    padding: .5rem 0;
+    color: #666;
+}
+
+/* Deskripsi */
+.bg-deskripsi {
+    padding: 1rem 0;
+}
+
+.bg-deskripsi h2 {
+    font-size: 2.25em;
+}
+
+.bg-deskripsi p {
+    padding: 1rem 0;
+    line-height: 2;
+}
+
+.pemilik-kos > div {
+    text-align: center;
+}
+
+.pemilik-kos img {
+    border-radius: 50%;
+    width: 75%;
+    display: block;
+    margin: .5rem auto;
+}
+
+.pemilik-kos h3 {
+    font-size: 2em;
+}
+
+.pemilik-kos span {
+    display: block;
+}
+
+/* Rekomendasi */
+.bg-rekomendasi {
+    padding: 2rem 0;
+}
+
+.bg-rekomendasi h2 {
+    font-size: 2.25em;
+}
+
+.kos-card {
+    margin: 1rem 0;
+}
+
+.kos-img {
+    position: relative;
+}
+
+.kos-img img {
+    object-fit: cover;
+    height: 250px;
+    width: 100%;
+    border-radius: 1rem;
+    display: block;
+}
+
+.blackdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgb(0, 0, 0, 0.5), transparent);
+    border-radius: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.kos-type {
+    margin: 1rem 1.5rem;
+    padding: .5rem 1.5rem;
+    background-color: var(--secondary-color);
+    border-radius: .5rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.kos-detail {
+    padding-left: 1rem;
+    margin-top: .5rem;
+}
+
+.kos-detail h3 {
+    font-size: 1.5em;
+}
+
+.kos-detail > span {
+    display: block;
+    color: #999;
+}
+
+.kos-icon {
+    color: var(--secondary-color);
+    font-size: 2em;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .5rem;
+    padding: 1rem 0;
+}
+
+.kos-icon i, .kos-icon span {
+    display: block;
+}
+
+.kos-price {
+    font-size: 2em;
+    font-weight: bold;
+    color: #000 !important;
+}
