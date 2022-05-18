@@ -25,6 +25,10 @@
     padding: 0 !important;
 }
 
+.with-gap {
+    gap: 1rem;
+}
+
 /* Header */
 nav {
     display: flex;
@@ -60,6 +64,11 @@ nav ul li a {
     font-weight: bold;
     font-size: 1.25em;
     text-decoration: none;
+}
+
+.btn-akun a {
+    font-size: 2em;
+    color: #000;
 }
 
 /* Footer */

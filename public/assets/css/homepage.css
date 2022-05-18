@@ -48,7 +48,6 @@ form {
 .banner-search input {
     width: 100%;
     padding: 1rem 1.5rem;
-    outline: none;
     border: 0;
     background-color: #ececec;
     border-radius: .5rem;
