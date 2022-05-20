@@ -14,7 +14,6 @@ class AddMoreRelationsToAdminsTable extends Migration
     public function up()
     {
         Schema::table('admins', function (Blueprint $table) {
-            $table->foreign('roleID')->references('id')->on('roles')->onUpdate('cascade');
             $table->foreign('alamatID')->references('id')->on('alamat_details')->onUpdate('cascade');
         });
     }
@@ -27,7 +26,6 @@ class AddMoreRelationsToAdminsTable extends Migration
     public function down()
     {
         Schema::table('admins', function (Blueprint $table) {
-            $table->dropForeign('admins_roleID_foreign');
             $table->dropForeign('admins_alamatID_foreign');
         });
     }

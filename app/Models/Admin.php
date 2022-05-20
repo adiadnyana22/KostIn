@@ -24,7 +24,6 @@ class Admin extends Authenticatable
         'email',
         'password',
         'roleID',
-        'alamatID',
         'phone'
     ];
 
@@ -46,16 +45,6 @@ class Admin extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    /**
-     * Get the role associated with the Admin
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function role(): HasOne
-    {
-        return $this->hasOne(Role::class);
-    }
 
     /**
      * Get the alamatDetails associated with the Admin

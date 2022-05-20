@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddMoreRelationsToKostDetailsTable extends Migration
+class CreateAlbumDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddMoreRelationsToKostDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::table('kost_details', function (Blueprint $table) {
-            $table->foreign('alamatID')->references('id')->on('alamat_details')->onUpdate('cascade');
+        Schema::create('album_details', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('albumID');
+            $table->unsignedBigInteger('pictureID');
+
+            $table->foreign('albumID')->references('id')->on('albums')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('pictureID')->references('id')->on('pictures')->onUpdate('cascade');
         });
     }
@@ -26,9 +30,6 @@ class AddMoreRelationsToKostDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::table('kost_details', function (Blueprint $table) {
-            $table->dropForeign('kost_details_alamatID_foreign');
-            $table->dropForeign('kost_details_pictureID_foreign');
-        });
+        Schema::dropIfExists('album_details');
     }
 }

@@ -16,6 +16,7 @@ class AddMoreColumnsToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedBigInteger('alamatID')->after('remember_token')->nullable();
             $table->string('phone', 15)->after('alamatID')->nullable();
+            $table->unsignedBigInteger('roleID')->after('phone');
             $table->softDeletes();
         });
     }
@@ -29,6 +30,7 @@ class AddMoreColumnsToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedBigInteger('alamatID');
+            $table->unsignedBigInteger('roleID');
             $table->string('phone');
         });
     }

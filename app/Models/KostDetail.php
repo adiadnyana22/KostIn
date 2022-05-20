@@ -25,7 +25,7 @@ class KostDetail extends Model
         'jatuhTempo',
         'alamatID',
         'favourites',
-        'pictureID'
+        'coverID'
     ];
 
     /**

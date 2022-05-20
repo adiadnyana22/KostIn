@@ -15,6 +15,7 @@ class AddMoreRelationsToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->foreign('alamatID')->references('id')->on('alamat_details')->onUpdate('cascade');
+            $table->foreign('roleID')->references('id')->on('roles')->onUpdate('cascade');
         });
     }
 
@@ -27,6 +28,7 @@ class AddMoreRelationsToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropForeign('users_alamatID_foreign');
+            $table->dropForeign('users_roleID_foreign');
         });
     }
 }

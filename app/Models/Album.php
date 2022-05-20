@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Provinsi extends Model
+class Album extends Model
 {
     use HasFactory;
-    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -17,16 +17,26 @@ class Provinsi extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'pictureID'
+        'kostID',
+        'coverID',
     ];
 
     /**
-     * Get the picture associated with the Provinsi
+     * Get the kost that owns the Album
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function kost(): BelongsTo
+    {
+        return $this->belongsTo(Kost::class);
+    }
+
+    /**
+     * Get the cover associated with the Album
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function picture(): HasOne
+    public function cover(): HasOne
     {
         return $this->hasOne(Picture::class);
     }

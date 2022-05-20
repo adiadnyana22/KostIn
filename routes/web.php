@@ -34,6 +34,10 @@ Route::get('/area', function () {
     return view('area');
 })->name('area');
 
+Route::get('/detail', function () {
+    return view('detail');
+})->name('detail');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
