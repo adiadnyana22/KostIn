@@ -11,13 +11,23 @@ use Illuminate\Support\Facades\Auth;
 class AuthenticatedSessionController extends Controller
 {
     /**
-     * Display the login view.
+     * Display the User login view.
      *
      * @return \Illuminate\View\View
      */
     public function create()
     {
         return view('auth.login');
+    }
+
+    /**
+     * Display the Admin login view.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function adminCreate()
+    {
+        return view('admin.login');
     }
 
     /**
@@ -31,6 +41,12 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+
+        if (Auth::user()->roleID == 1) {
+            return redirect()->intended(RouteServiceProvider::ADMINHOME);
+        } else if (Auth::user()->roleID == 2) {
+            return redirect()->intended(RouteServiceProvider::KOSTOWNERHOME);
+        }
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }

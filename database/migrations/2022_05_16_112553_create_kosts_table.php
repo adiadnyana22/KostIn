@@ -22,7 +22,7 @@ class CreateKostsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('ownerID')->references('id')->on('admins')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('ownerID')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

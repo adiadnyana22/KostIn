@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Admin;
 use App\Models\AlamatDetail;
 use App\Models\Picture;
 use App\Models\Provinsi;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class AdminSeeder extends Seeder
@@ -35,13 +35,14 @@ class AdminSeeder extends Seeder
             'kodePos' => 123456,
         ]);
 
-        Admin::create([
+        User::create([
             'name' => 'Admin 1',
             'email' => 'admin1@admin.com',
             'email_verified_at' => date('Y-m-d H:i:s', time()),
             'password' => \bcrypt('password'),
             'alamatID' => 1,
             'phone' => '12345678',
+            'roleID' => 1,
         ]);
     }
 }
