@@ -35,6 +35,17 @@
     font-size: 1.25em;
 }
 
+.akun-nav ul li a.kos-owner {
+    color: var(--primary-color);
+    /* background-color: var(--primary-color); */
+    margin-top: 1rem;
+    border: 1px solid var(--primary-color);
+    text-align: center;
+    font-weight: bold;
+    padding: .75rem 0;
+    border-radius: .5rem;
+}
+
 .akun-nav ul li a.logout {
     color: #dc3545;
     border: 0;
@@ -106,3 +117,46 @@
     background-color: var(--secondary-color) !important;
     color: #fff !important;
 } */
+
+.layer-form .row {
+    gap: 0 1rem;
+}
+
+.layer-form form label {
+    display: block;
+    margin-top: .5rem;
+}
+
+.layer-form form input {
+    display: block;
+    width: 100%;
+    padding: .5rem 1rem;
+}
+
+.layer-form form textarea {
+    display: block;
+    width: 100%;
+    padding: .5rem 1rem;
+    height: 100px;
+}
+
+.form-desc {
+    color: #999;
+    font-size: .75em;
+}
+
+.form-button {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.form-button button {
+    padding: .75rem 2rem;
+    background-color: var(--secondary-color);
+    border: 0;
+    border-radius: .5rem;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 1rem;
+}

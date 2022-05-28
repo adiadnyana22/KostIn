@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KostIn - Penyedia Kos Mahasiswa</title>
+    <!-- Css Link -->
+    <link rel="stylesheet" href="../public/assets/css/grid.css">
+    <link rel="stylesheet" href="../public/assets/css/style.css">
+    <link rel="stylesheet" href="../public/assets/css/akun.css">
+    <!-- Extention Link -->
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'> 
+    <!-- Datatables -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="blue-background">
+            <header>
+                <div class="container">
+                    <nav>
+                        <div class="logo">
+                            <span>KostIn</span>
+                        </div>
+                        <ul>
+                            <li><a href="#">Beranda</a></li>
+                            <li><a href="#">Area</a></li>
+                            <li><a href="#">Kampus</a></li>
+                            <li><a href="#">Tentang Kami</a></li>
+                        </ul>
+                        <!-- Without Login -->
+                        <!-- <div class="btn-header">
+                            <a href="#">Masuk</a>
+                        </div> -->
+                        <!-- With Login -->
+                        <div class="btn-akun">
+                            <a href="#"><i class='bx bxs-user-circle'></i></a>
+                        </div>
+                    </nav>
+                </div>
+             </header>
+             <section class="bg-banner">
+                <div class="container">
+                    <div class="row with-gap">
+                        <div class="col-xl-3 col-lg-3 col-md-12 no-padding">
+                            <div class="akun-nav">
+                                <ul>
+                                    <li><a href="#">Manage Kos</a></li>
+                                    <li><a href="#">Manage Transaksi</a></li>
+                                    <li><a href="#">Manage Akun</a></li>
+                                    <li><a href="#" class="kos-owner">Jadi Kos Owner</a></li>
+                                    <li><a href="#" class="logout"><i class='bx bxs-user-circle'></i> Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-9 col-md-12 no-padding">
+                            <div class="akun-layer">
+                                <div class="layer-title">
+                                    <h1>Manage Akun</h1>
+                                </div>
+                                <div class="layer-form">
+                                    <form action="">
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12 no-padding">
+                                                <h2>Login Data</h2>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
+                                                <label for="form-email">Email</label>
+                                                <input type="email" placeholder="Email ..." value="leo@binus.ac.id" disabled id="form-email" name="form-email">
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
+                                                <label for="form-password">Password</label>
+                                                <input type="password" placeholder="Passowrd ..." id="form-password" name="form-password">
+                                                <div class="form-desc">
+                                                    <span>Kosongkan jika tidak ingin mengganti password</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12 col-lg-12 no-padding">
+                                                <h2>Personal Data</h2>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
+                                                <label for="form-name">Name</label>
+                                                <input type="text" placeholder="Name ..." id="form-name" name="form-name">
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
+                                                <label for="form-phone">Phone</label>
+                                                <input type="text" placeholder="Phone ..." id="form-phone" name="form-phone">
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
+                                                <label for="form-kecamatan">Kecamatan</label>
+                                                <input type="text" placeholder="Kecamatan ..." id="form-kecamatan" name="form-kecamatan">
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
+                                                <label for="form-kota">Kota</label>
+                                                <input type="text" placeholder="Kota ..." id="form-kota" name="form-kota">
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
+                                                <label for="form-provinsi">Provinsi</label>
+                                                <input type="text" placeholder="Provinsi ..." id="form-provinsi" name="form-provinsi">
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
+                                                <label for="form-kode-pos">Kode Pos</label>
+                                                <input type="text" placeholder="Kode Pos ..." id="form-kode-pos" name="form-kode-pos">
+                                            </div>
+                                            <div class="col-xl-12 col-lg-12 no-padding">
+                                                <label for="form-detail-alamat">Detail Alamat</label>
+                                                <textarea name="form-detail-alamat" id="form-detail-alamat" placeholder="Detail Alamat ..."></textarea>
+                                            </div>
+                                            <div class="col-xl-12 col-lg-12 no-padding">
+                                                <div class="form-button">
+                                                    <button>Update Data</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </section>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#datatables').DataTable();
+        });
+    </script>
+</body>
+</html>
