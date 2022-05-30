@@ -29,6 +29,11 @@
     gap: 1rem;
 }
 
+.text-danger {
+    font-size: .75em;
+    color: #dc3545 !important;
+}
+
 /* Header */
 nav {
     display: flex;
