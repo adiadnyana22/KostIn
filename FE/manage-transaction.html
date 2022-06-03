@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KostIn - Penyedia Kos Mahasiswa</title>
+    <!-- Css Link -->
+    <link rel="stylesheet" href="../public/assets/css/grid.css">
+    <link rel="stylesheet" href="../public/assets/css/style.css">
+    <link rel="stylesheet" href="../public/assets/css/akun.css">
+    <!-- Extention Link -->
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'> 
+    <!-- Datatables -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="blue-background">
+            <header>
+                <div class="container">
+                    <nav>
+                        <div class="logo">
+                            <span>KostIn</span>
+                        </div>
+                        <ul>
+                            <li><a href="#">Beranda</a></li>
+                            <li><a href="#">Area</a></li>
+                            <li><a href="#">Kampus</a></li>
+                            <li><a href="#">Tentang Kami</a></li>
+                        </ul>
+                        <!-- Without Login -->
+                        <!-- <div class="btn-header">
+                            <a href="#">Masuk</a>
+                        </div> -->
+                        <!-- With Login -->
+                        <div class="btn-akun">
+                            <a href="#"><i class='bx bxs-user-circle'></i></a>
+                        </div>
+                    </nav>
+                </div>
+             </header>
+             <section class="bg-banner">
+                <div class="container">
+                    <div class="row with-gap">
+                        <div class="col-xl-3 col-lg-3 col-md-12 no-padding">
+                            <div class="akun-nav">
+                                <ul>
+                                    <li><a href="#">Manage Kos</a></li>
+                                    <li><a href="#">Manage Transaksi</a></li>
+                                    <li><a href="#">Manage Akun</a></li>
+                                    <li><a href="#" class="logout"><i class='bx bxs-user-circle'></i> Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-9 col-md-12 no-padding">
+                            <div class="akun-layer">
+                                <div class="layer-title">
+                                    <h1>Manage Transaction</h1>
+                                </div>
+                                <table id="datatables">
+                                    <thead>
+                                        <tr>
+                                            <td>No</td>
+                                            <td>Nama Kos</td>
+                                            <td>Nama Customer</td>
+                                            <td>Tanggal Masuk</td>
+                                            <td>Lama Sewa</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>9 Square VIP</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>9 Square VIP Aja</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>9 Square VIP Y</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>9 Square VIP</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>9 Square VIP Aja</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>9 Square VIP Y</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>9 Square VIP</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>9 Square VIP Aja</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>9 Square VIP Y</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>9 Square VIP</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>9 Square VIP Aja</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>9 Square VIP Y</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>9 Square VIP</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>9 Square VIP Aja</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>9 Square VIP Y</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>9 Square VIP</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>9 Square VIP Aja</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>9 Square VIP Y</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>9 Square VIP</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>9 Square VIP Aja</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>9 Square VIP Y</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>9 Square VIP</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>9 Square VIP Aja</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>9 Square VIP Y</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>9 Square VIP</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>9 Square VIP Aja</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>9 Square VIP Y</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>9 Square VIP</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>9 Square VIP Aja</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>9 Square VIP Y</td>
+                                            <td>Leonardo Wijaya</td>
+                                            <td>1/6/2022</td>
+                                            <td>3 Bulan</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </section>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#datatables').DataTable();
+        });
+    </script>
+</body>
+</html>
