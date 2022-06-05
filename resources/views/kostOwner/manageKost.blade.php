@@ -32,14 +32,17 @@
                             <li><a href="{{ route('kampus') }}">Kampus</a></li>
                             <li><a href="{{ route('about') }}">Tentang Kami</a></li>
                         </ul>
-                        <!-- Without Login -->
-                        <!-- <div class="btn-header">
-                            <a href="#">Masuk</a>
-                        </div> -->
                         <!-- With Login -->
+                        @if (Auth::user())
                         <div class="btn-akun">
                             <a href="#"><i class='bx bxs-user-circle'></i></a>
                         </div>
+                        <!-- Without Login -->
+                        @else
+                        <div class="btn-header">
+                            <a href="#">Masuk</a>
+                        </div>
+                        @endif
                     </nav>
                 </div>
              </header>
@@ -66,7 +69,7 @@
                         <div class="col-xl-9 col-lg-9 col-md-12 no-padding">
                             <div class="akun-layer">
                                 <div class="layer-title">
-                                    <h1>Manage Akun</h1>
+                                    <h1>Manage Kos</h1>
                                     <button>Tambah Kos</button>
                                 </div>
                                 <table id="datatables">

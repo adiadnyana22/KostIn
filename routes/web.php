@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\KostOwner\KostOwnerController;
+use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +45,8 @@ Route::group(['middleware' => ['user']], function () {
         Route::get('/dashboard', function () {
             return view('user.dashboard');
         })->name('dashboard');
+        Route::get('/updateAccount', [UserController::class, 'createUpdateAccount'])->name('updateAccount');
+        Route::post('/updateAccount', [UserController::class, 'storeUpdateAccount'])->name('updateAccount');
     });
 });
 
@@ -51,6 +55,8 @@ Route::group(['middleware' => ['kostOwner']], function () {
         Route::get('/dashboard', function () {
             return view('kostOwner.dashboard');
         })->name('dashboard');
+        Route::get('/manageKost', [KostOwnerController::class, 'createManageKost'])->name('manageKost');
+        Route::post('/manageKost', [KostOwnerController::class, 'createManageKost'])->name('manageKost');
     });
 });
 
