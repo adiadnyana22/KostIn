@@ -54,7 +54,7 @@
                                     <li><a href="{{ route('kostOwner/manageKost') }}">Manage Kos</a></li>
                                     @endif
                                     {{-- <li><a href="#">Manage Transaksi</a></li> --}}
-                                    <li><a href="{{ route('user/updateAccount') }}">Manage Akun</a></li>
+                                    <li><a href="{{ route('kostOwner/updateAccount') }}">Manage Akun</a></li>
                                     @if (Auth::user()->roleID == 3)
                                     <li><a href="#" class="kos-owner">Jadi Kos Owner</a></li>
                                     @endif

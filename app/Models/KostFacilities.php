@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class KostFacilities extends Model
 {
+    public $timestamps = false;
     use HasFactory;
 
     /**

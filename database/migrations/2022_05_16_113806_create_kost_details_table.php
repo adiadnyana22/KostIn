@@ -20,7 +20,6 @@ class CreateKostDetailsTable extends Migration
             $table->integer('jumlahKamar');
             $table->integer('jumlahPenghuni');
             $table->double('harga');
-            $table->string('jatuhTempo');
             $table->unsignedBigInteger('alamatID');
             $table->integer('favourites')->default(0);
             $table->unsignedBigInteger('albumID')->nullable();

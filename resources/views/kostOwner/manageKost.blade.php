@@ -57,7 +57,7 @@
                                     <li><a href="{{ route('kostOwner/manageKost') }}">Manage Kos</a></li>
                                     @endif
                                     {{-- <li><a href="#">Manage Transaksi</a></li> --}}
-                                    <li><a href="{{ route('user/updateAccount') }}">Manage Akun</a></li>
+                                    <li><a href="{{ route('kostOwner/updateAccount') }}">Manage Akun</a></li>
                                     @if (Auth::user()->roleID == 3)
                                     <li><a href="#" class="kos-owner">Jadi Kos Owner</a></li>
                                     @endif
@@ -70,7 +70,7 @@
                             <div class="akun-layer">
                                 <div class="layer-title">
                                     <h1>Manage Kos</h1>
-                                    <button>Tambah Kos</button>
+                                    <a href="{{ route('kostOwner/tambahKost') }}"><button>Tambah Kos</button></a>
                                 </div>
                                 <table id="datatables">
                                     <thead>
@@ -83,182 +83,31 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($kost as $datas)
                                         <tr>
-                                            <td>1</td>
-                                            <td>9 Square VIP Residence</td>
-                                            <td>Verified</td>
-                                            <td><button class="true-btn">True</button></td>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $datas->kostName }}</td>
+                                            <td>
+                                            @if ( $datas->kostApproved == 0)
+                                                Not Verified
+                                            @else
+                                                Verifid
+                                            @endif
+                                            </td>
+                                            <td>
+                                                @if ( $datas->kostJumlahPenghuni < $datas->kostJumlahKamar )
+                                                    <button class="false-btn">False</button>
+                                                @else
+                                                    <button class="true-btn">True</button>
+                                                @endif
+                                                </td>
                                             <td>
                                                 <button class="default-btn">Detail</button>
-                                                <button class="default-btn">Edit</button>
+                                                <a href="{{ route('kostOwner/editKost', $datas->kostID) }}"><button class="default-btn">Edit</button></a>
                                                 <button class="default-btn">Delete</button>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>9 Square VIP Residence</td>
-                                            <td>Verified</td>
-                                            <td><button class="false-btn">False</button></td>
-                                            <td>
-                                                <button class="default-btn">Detail</button>
-                                                <button class="default-btn">Edit</button>
-                                                <button class="default-btn">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>9 Square VIP Residence</td>
-                                            <td>Verified</td>
-                                            <td><button class="false-btn">False</button></td>
-                                            <td>
-                                                <button class="default-btn">Detail</button>
-                                                <button class="default-btn">Edit</button>
-                                                <button class="default-btn">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>9 Square VIP Residence</td>
-                                            <td>Verified</td>
-                                            <td><button class="true-btn">True</button></td>
-                                            <td>
-                                                <button class="default-btn">Detail</button>
-                                                <button class="default-btn">Edit</button>
-                                                <button class="default-btn">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>9 Square VIP Residence</td>
-                                            <td>Verified</td>
-                                            <td><button class="true-btn">True</button></td>
-                                            <td>
-                                                <button class="default-btn">Detail</button>
-                                                <button class="default-btn">Edit</button>
-                                                <button class="default-btn">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>9 Square VIP Residence</td>
-                                            <td>Verified</td>
-                                            <td><button class="false-btn">False</button></td>
-                                            <td>
-                                                <button class="default-btn">Detail</button>
-                                                <button class="default-btn">Edit</button>
-                                                <button class="default-btn">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>9 Square VIP Residence</td>
-                                            <td>Verified</td>
-                                            <td><button class="false-btn">False</button></td>
-                                            <td>
-                                                <button class="default-btn">Detail</button>
-                                                <button class="default-btn">Edit</button>
-                                                <button class="default-btn">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>9 Square VIP Residence</td>
-                                            <td>Verified</td>
-                                            <td><button class="true-btn">True</button></td>
-                                            <td>
-                                                <button class="default-btn">Detail</button>
-                                                <button class="default-btn">Edit</button>
-                                                <button class="default-btn">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>9 Square VIP Residence</td>
-                                            <td>Verified</td>
-                                            <td><button class="true-btn">True</button></td>
-                                            <td>
-                                                <button class="default-btn">Detail</button>
-                                                <button class="default-btn">Edit</button>
-                                                <button class="default-btn">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>9 Square VIP Residence</td>
-                                            <td>Verified</td>
-                                            <td><button class="false-btn">False</button></td>
-                                            <td>
-                                                <button class="default-btn">Detail</button>
-                                                <button class="default-btn">Edit</button>
-                                                <button class="default-btn">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>9 Square VIP Residence</td>
-                                            <td>Verified</td>
-                                            <td><button class="false-btn">False</button></td>
-                                            <td>
-                                                <button class="default-btn">Detail</button>
-                                                <button class="default-btn">Edit</button>
-                                                <button class="default-btn">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>9 Square VIP Residence</td>
-                                            <td>Verified</td>
-                                            <td><button class="true-btn">True</button></td>
-                                            <td>
-                                                <button class="default-btn">Detail</button>
-                                                <button class="default-btn">Edit</button>
-                                                <button class="default-btn">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>9 Square VIP Residence</td>
-                                            <td>Verified</td>
-                                            <td><button class="true-btn">True</button></td>
-                                            <td>
-                                                <button class="default-btn">Detail</button>
-                                                <button class="default-btn">Edit</button>
-                                                <button class="default-btn">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>9 Square VIP Residence</td>
-                                            <td>Verified</td>
-                                            <td><button class="false-btn">False</button></td>
-                                            <td>
-                                                <button class="default-btn">Detail</button>
-                                                <button class="default-btn">Edit</button>
-                                                <button class="default-btn">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>9 Square VIP Residence</td>
-                                            <td>Verified</td>
-                                            <td><button class="false-btn">False</button></td>
-                                            <td>
-                                                <button class="default-btn">Detail</button>
-                                                <button class="default-btn">Edit</button>
-                                                <button class="default-btn">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>9 Square VIP Residence</td>
-                                            <td>Verified</td>
-                                            <td><button class="true-btn">True</button></td>
-                                            <td>
-                                                <button class="default-btn">Detail</button>
-                                                <button class="default-btn">Edit</button>
-                                                <button class="default-btn">Delete</button>
-                                            </td>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

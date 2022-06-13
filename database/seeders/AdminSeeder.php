@@ -17,15 +17,6 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        Picture::create([
-            'path' => 'kotaJakarta.png',
-            'type' => 'Provinsi',
-        ]);
-
-        Provinsi::create([
-            'name' => 'DKI Jakarta',
-            'pictureID' => 1,
-        ]);
 
         AlamatDetail::create([
             'kecamatan' => 'Pesanggarahan',

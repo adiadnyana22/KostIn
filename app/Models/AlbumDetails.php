@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class AlbumDetails extends Model
 {
+    public $timestamps = false;
     use HasFactory;
 
     /**

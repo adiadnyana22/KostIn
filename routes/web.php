@@ -42,10 +42,7 @@ Route::get('/detail', function () {
 
 Route::group(['middleware' => ['user']], function () {
     Route::prefix('user/')->name('user/')->group(function () {
-        Route::get('/dashboard', function () {
-            return view('user.dashboard');
-        })->name('dashboard');
-        Route::get('/updateAccount', [UserController::class, 'createUpdateAccount'])->name('updateAccount');
+        Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
         Route::post('/updateAccount', [UserController::class, 'storeUpdateAccount'])->name('updateAccount');
     });
 });
@@ -55,8 +52,14 @@ Route::group(['middleware' => ['kostOwner']], function () {
         Route::get('/dashboard', function () {
             return view('kostOwner.dashboard');
         })->name('dashboard');
+        Route::get('/updateAccount', [UserController::class, 'dashboard'])->name('updateAccount');
+        Route::post('/updateAccount', [UserController::class, 'storeUpdateAccount'])->name('updateAccount');
         Route::get('/manageKost', [KostOwnerController::class, 'createManageKost'])->name('manageKost');
         Route::post('/manageKost', [KostOwnerController::class, 'createManageKost'])->name('manageKost');
+        Route::get('/tambahKost', [KostOwnerController::class, 'createTambahKost'])->name('tambahKost');
+        Route::post('/tambahKost', [KostOwnerController::class, 'storeTambahKost'])->name('tambahKost');
+        Route::get('/editKost/{id}', [KostOwnerController::class, 'createEditKost'])->name('editKost');
+        Route::post('/storeEditKost', [KostOwnerController::class, 'storeEditKost'])->name('storeEditKost');
     });
 });
 

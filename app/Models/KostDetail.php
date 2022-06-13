@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class KostDetail extends Model
 {
+    public $timestamps = false;
     use HasFactory;
 
     /**
@@ -22,7 +23,6 @@ class KostDetail extends Model
         'jumlahKamar',
         'jumlahPenghuni',
         'harga',
-        'jatuhTempo',
         'alamatID',
         'favourites',
         'coverID'

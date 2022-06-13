@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UpdateAccountRequest;
 use App\Models\AlamatDetail;
+use App\Models\Provinsi;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
@@ -19,9 +20,10 @@ class UserController extends Controller
      *
      * @return void
      */
-    public function createUpdateAccount()
+    public function dashboard()
     {
-        return view('user.manageAccount');
+        $provinsi = Provinsi::get();
+        return view('user.dashboard', ['provinsi' => $provinsi]);
     }
 
     public function storeUpdateAccount(UpdateAccountRequest $request)
@@ -41,7 +43,7 @@ class UserController extends Controller
             $alamat = AlamatDetail::where('id', $user->alamatID)->first();
             $alamat->kecamatan = $data['kecamatan'];
             $alamat->kabupaten = $data['kabupaten'];
-            $alamat->provinsiID = 1;
+            $alamat->provinsiID = $data['provinsi'];
             $alamat->alamatDetail = $data['detailAlamat'];
             $alamat->kodePos = $data['kodePos'];
             $user->save();
@@ -67,9 +69,10 @@ class UserController extends Controller
         $alamat = AlamatDetail::create([
             'kecamatan' => $data['kecamatan'],
             'kabupaten' => $data['kabupaten'],
-            'provinsiID' => 1,
+            'provinsiID' => $data['provinsi'],
             'alamatDetail' => $data['detailAlamat'],
             'kodePos' => $data['kodePos'],
         ]);
+        $alamat->save();
     }
 }
