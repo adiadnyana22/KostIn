@@ -35,7 +35,7 @@ class KostDetail extends Model
      */
     public function kost(): BelongsTo
     {
-        return $this->belongsTo(Kost::class);
+        return $this->belongsTo(Kost::class, 'id', 'kostID');
     }
 
     /**
@@ -45,16 +45,16 @@ class KostDetail extends Model
      */
     public function alamatDetail(): HasOne
     {
-        return $this->hasOne(AlamatDetail::class);
+        return $this->hasOne(AlamatDetail::class, 'id', 'alamatID');
     }
 
     /**
-     * Get the picture associated with the KostDetail
+     * Get the album associated with the KostDetail
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function picture(): HasOne
+    public function album(): HasOne
     {
-        return $this->hasOne(Picture::class);
+        return $this->hasOne(Album::class, 'id', 'albumID');
     }
 }

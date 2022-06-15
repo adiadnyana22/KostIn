@@ -60,11 +60,11 @@ class KostOwnerController extends Controller
         $alamat->save();
 
         $imageName = $request->kostName . '/' . $request->kostPhoto->getClientOriginalName();
-        $request->kostPhoto->move(public_path('Album/Kost/'), $imageName);
+        $request->kostPhoto->move(public_path('Album/Kost/' . $request->kostName . '/'), $request->kostPhoto->getClientOriginalName());
 
         $picture = Picture::create([
             'path' => $imageName,
-            'type' => 'Kost/' . $kost->name,
+            'type' => 'Kost',
         ]);
         $picture->save();
 

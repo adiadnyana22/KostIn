@@ -87,102 +87,34 @@
             <div class="container">
                 <h2>Kos Populer Sekitar Anda</h2>
                 <div class="row">
+                    @foreach ($dataKost as $dataKosts)
                     <div class="col-xl-6 col-lg-6 col-md-12">
                         <div class="kos-card">
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6 no-padding">
                                     <div class="kos-img">
-                                        <img src="{{ asset('assets/images/kos.png') }}" alt="Kos">
+                                        <img src="{{ asset('Album/Kost/' . $dataKosts->gambarKost) }}" alt="Kos">
                                         <div class="blackdrop">
-                                            <div class="kos-type">Campur</div>
+                                            <div class="kos-type">{{ $dataKosts->tipeKost }}</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 no-padding">
                                     <div class="kos-detail">
-                                        <h3>Kost Mampang Residence 94 Mampang Prapatan</h3>
-                                        <span>Tegal Parang, Jakarta Selatan</span>
+                                        <h3>{{ $dataKosts->nameKost }}</h3>
+                                        <span>{{ $dataKosts->kecamatanKost }}, {{ $dataKosts->kabupatenKost }}</span>
                                         <div class="kos-icon">
-                                            <i class='bx bx-bed' ></i><i class='bx bx-bath' ></i><i class='bx bxs-washer' ></i><i class='bx bx-wifi' ></i><span>6+</span>
+                                            @foreach ($facility as $facilities)
+                                            {!! $facilities->facilityKost !!}
+                                            @endforeach
                                         </div>
-                                        <span class="kos-price">Rp. 2,750,000</span>
+                                        <span class="kos-price">Rp. {{ $dataKosts->hargaKost }}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-12">
-                        <div class="kos-card">
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-6 no-padding">
-                                    <div class="kos-img">
-                                        <img src="{{ asset('assets/images/kos.png') }}" alt="Kos">
-                                        <div class="blackdrop">
-                                            <div class="kos-type">Campur</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 no-padding">
-                                    <div class="kos-detail">
-                                        <h3>Kost Mampang Residence 94 Mampang Prapatan</h3>
-                                        <span>Tegal Parang, Jakarta Selatan</span>
-                                        <div class="kos-icon">
-                                            <i class='bx bx-bed' ></i><i class='bx bx-bath' ></i><i class='bx bxs-washer' ></i><i class='bx bx-wifi' ></i><span>6+</span>
-                                        </div>
-                                        <span class="kos-price">Rp. 2,750,000</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-12">
-                        <div class="kos-card">
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-6 no-padding">
-                                    <div class="kos-img">
-                                        <img src="{{ asset('assets/images/kos.png') }}" alt="Kos">
-                                        <div class="blackdrop">
-                                            <div class="kos-type">Campur</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 no-padding">
-                                    <div class="kos-detail">
-                                        <h3>Kost Mampang Residence 94 Mampang Prapatan</h3>
-                                        <span>Tegal Parang, Jakarta Selatan</span>
-                                        <div class="kos-icon">
-                                            <i class='bx bx-bed' ></i><i class='bx bx-bath' ></i><i class='bx bxs-washer' ></i><i class='bx bx-wifi' ></i><span>6+</span>
-                                        </div>
-                                        <span class="kos-price">Rp. 2,750,000</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-12">
-                        <div class="kos-card">
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-6 no-padding">
-                                    <div class="kos-img">
-                                        <img src="{{ asset('assets/images/kos.png') }}" alt="Kos">
-                                        <div class="blackdrop">
-                                            <div class="kos-type">Campur</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 no-padding">
-                                    <div class="kos-detail">
-                                        <h3>Kost Mampang Residence 94 Mampang Prapatan</h3>
-                                        <span>Tegal Parang, Jakarta Selatan</span>
-                                        <div class="kos-icon">
-                                            <i class='bx bx-bed' ></i><i class='bx bx-bath' ></i><i class='bx bxs-washer' ></i><i class='bx bx-wifi' ></i><span>6+</span>
-                                        </div>
-                                        <span class="kos-price">Rp. 2,750,000</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -199,30 +131,14 @@
                             <div class="col-xl-12 col-lg-12">
                                 <h2>Area Kos Populer</h2>
                             </div>
+                            @foreach ($area as $areas)
                             <div class="col-xl-6 col-lg-6 col-md-12">
                                 <div class="area-populer-card">
-                                    <img src="{{ asset('assets/images/Jakarta.png') }}" alt="Jakarta" class="w-100">
-                                    <span>Jakarta</span>
+                                    <img src="{{ asset('Album/' . $areas->picture) }}" alt="Jakarta" class="w-100">
+                                    <span>{{ $areas->provinsi }}</span>
                                 </div>
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-12">
-                                <div class="area-populer-card">
-                                    <img src="{{ asset('assets/images/Yogyakarta.png') }}" alt="Yogyakarta" class="w-100">
-                                    <span>Yogyakarta</span>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-12">
-                                <div class="area-populer-card">
-                                    <img src="{{ asset('assets/images/Surabaya.png') }}" alt="Surabaya" class="w-100">
-                                    <span>Surabaya</span>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-12">
-                                <div class="area-populer-card">
-                                    <img src="{{ asset('assets/images/Bandung.png') }}" alt="Bandung" class="w-100">
-                                    <span>Bandung</span>
-                                </div>
-                            </div>
+                            @endforeach
                             <div class="col-xl-12 col-lg-12">
                                 <a href="#" class="btn-area-populer">Area Kos Lain</a>
                             </div>
