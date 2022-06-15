@@ -26,12 +26,6 @@
                         <div class="logo">
                             <span>KostIn</span>
                         </div>
-                        <ul>
-                            <li><a href="{{ route('welcome') }}">Beranda</a></li>
-                            <li><a href="{{ route('area') }}">Area</a></li>
-                            <li><a href="{{ route('kampus') }}">Kampus</a></li>
-                            <li><a href="{{ route('about') }}">Tentang Kami</a></li>
-                        </ul>
                         <!-- With Login -->
                         @if (Auth::user())
                         <div class="btn-akun">
@@ -75,42 +69,42 @@
                         <div class="col-xl-9 col-lg-9 col-md-12 no-padding">
                             <div class="akun-layer">
                                 <div class="layer-title">
-                                    <h1>Manage Kos</h1>
-                                    <a href="{{ route('kostOwner/tambahKost') }}"><button>Tambah Kos</button></a>
+                                    <h1>Manage User Requests</h1>
                                 </div>
                                 <table id="datatables">
                                     <thead>
                                         <tr>
                                             <td>No</td>
-                                            <td>Nama Kos</td>
-                                            <td>Verified</td>
-                                            <td>Full</td>
+                                            <td>Nama User</td>
+                                            <td>Status</td>
+                                            <td>Nama Kost</td>
+                                            <td>Timestamp</td>
                                             <td>Action</td>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($kost as $datas)
+                                        @foreach ($data as $datas)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $datas->kostName }}</td>
+                                            <td>{{ $datas->user->name }}</td>
                                             <td>
-                                            @if ( $datas->kostApproved == 0)
-                                                Not Verified
-                                            @else
-                                                Verifid
-                                            @endif
+                                                @if( $datas->approved == 1 )
+                                                    Accepted
+                                                @else
+                                                    Pending
+                                                @endif
                                             </td>
                                             <td>
-                                                @if ( $datas->kostJumlahPenghuni < $datas->kostJumlahKamar )
-                                                    <button class="false-btn">False</button>
-                                                @else
-                                                    <button class="true-btn">True</button>
-                                                @endif
-                                                </td>
+                                                {{ $datas->kost->name }}
+                                            </td>
+                                            <td>{{ $datas->updated_at }}</td>
                                             <td>
                                                 <button class="default-btn">Detail</button>
-                                                <a href="{{ route('kostOwner/editKost', $datas->kostID) }}"><button class="default-btn">Edit</button></a>
-                                                <button class="default-btn">Delete</button>
+                                                @if ( $datas->acceptedBy )
+                                                    
+                                                @else
+                                                    <a href="{{ route('kostOwner/storeKostRequest', $datas->id) }}"><button class="true-btn">Accept</button></a>
+                                                @endif
                                             </td>
                                         </tr>
                                         @endforeach

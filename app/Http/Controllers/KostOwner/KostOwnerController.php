@@ -10,6 +10,7 @@ use App\Models\AlbumDetails;
 use App\Models\Kost;
 use App\Models\KostDetail;
 use App\Models\KostFacilities;
+use App\Models\KostRequest as ModelsKostRequest;
 use App\Models\Picture;
 use App\Models\Provinsi;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +27,7 @@ class KostOwnerController extends Controller
             ->where('kosts.ownerID', '=', Auth::user()->id)
             ->select('kosts.name as kostName', 'kosts.approved as kostApproved', 'kost_details.jumlahKamar as kostJumlahKamar', 'kost_details.jumlahPenghuni as kostJumlahPenghuni', 'kosts.id as kostID')
             ->get();
-        return view('kostOwner.manageKost', ['kost' => $dataKost]);
+        return view('kostOwner.dashboard', ['kost' => $dataKost]);
     }
 
     public function createTambahKost()
@@ -100,7 +101,7 @@ class KostOwnerController extends Controller
             ]);
         }
 
-        return redirect('kostOwner/manageKost');
+        return redirect('kostOwner/dashboard');
     }
 
     public function createEditKost($id)
@@ -177,6 +178,16 @@ class KostOwnerController extends Controller
             ]);
         }
 
-        return redirect('kostOwner/manageKost');
+        return redirect('kostOwner/dashboard');
+    }
+
+    public function createManageKostRequest()
+    {
+        $userrequests = ModelsKostRequest::join('users', 'users.id', '=', 'kost_requests.userID')
+            ->join('kosts', 'kosts.id', '=', 'kost_requests.kostID')
+            ->where('kost_requests.ownerID', Auth::user()->id)
+            ->get(['users.*', 'kost_requests.*', 'kosts.*']);
+
+        return view('kostOwner.manageUserRequest', ['data' => $userrequests]);
     }
 }

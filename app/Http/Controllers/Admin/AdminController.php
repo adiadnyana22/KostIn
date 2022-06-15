@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\AdminController\Auth;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\AdminLoginRequest;
 use App\Models\Admin;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
-use App\Http\Requests\Auth\LoginRequest;
+use App\Models\KostRequest;
+use App\Models\Kost;
+use App\Models\Request as KostOwnerRequest;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class AdminController extends Controller
@@ -20,7 +19,41 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $requests = KostOwnerRequest::join('users', 'users.id', '=', 'requests.userID')
+            ->get(['users.*', 'requests.*']);
+        return view('admin.dashboard', ['data' => $requests]);
+    }
+
+    public function acceptKostOwner($id)
+    {
+        KostOwnerRequest::where('userID', $id)->update([
+            'acceptedBy' => FacadesAuth::user()->id,
+        ]);
+
+        return redirect('admin/dashboard');
+    }
+
+    public function manageKostRequest()
+    {
+        $kosts = Kost::join('users', 'users.id', '=', 'kosts.ownerID')
+            ->get(['users.*', 'kosts.*']);
+        return view('admin.manageKostRequest', ['data' => $kosts]);
+    }
+
+    public function acceptKostRequest(Request $request)
+    {
+        Kost::where('id', $request->kostID)->update([
+            'approved' => 1,
+        ]);
+
+        return redirect('admin/manageKostRequest');
+    }
+
+    public function manageUserRequest()
+    {
+        $userrequests = KostRequest::join('users', 'users.id', '=', 'kost_requests.userID')
+            ->get(['users.*', 'kost_requests.*']);
+        return view('admin.manageUserRequest', ['data' => $userrequests]);
     }
 
     /**

@@ -44,28 +44,32 @@ Route::group(['middleware' => ['user']], function () {
     Route::prefix('user/')->name('user/')->group(function () {
         Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
         Route::post('/updateAccount', [UserController::class, 'storeUpdateAccount'])->name('updateAccount');
+        Route::post('/requestKostOwner', [UserController::class, 'requestKostOwner'])->name('requestKostOwner');
     });
 });
 
 Route::group(['middleware' => ['kostOwner']], function () {
     Route::prefix('kostOwner/')->name('kostOwner/')->group(function () {
-        Route::get('/dashboard', function () {
-            return view('kostOwner.dashboard');
-        })->name('dashboard');
+        Route::get('/dashboard', [KostOwnerController::class, 'createManageKost'])->name('dashboard');
         Route::get('/updateAccount', [UserController::class, 'dashboard'])->name('updateAccount');
         Route::post('/updateAccount', [UserController::class, 'storeUpdateAccount'])->name('updateAccount');
-        Route::get('/manageKost', [KostOwnerController::class, 'createManageKost'])->name('manageKost');
         Route::post('/manageKost', [KostOwnerController::class, 'createManageKost'])->name('manageKost');
         Route::get('/tambahKost', [KostOwnerController::class, 'createTambahKost'])->name('tambahKost');
         Route::post('/tambahKost', [KostOwnerController::class, 'storeTambahKost'])->name('tambahKost');
         Route::get('/editKost/{id}', [KostOwnerController::class, 'createEditKost'])->name('editKost');
         Route::post('/storeEditKost', [KostOwnerController::class, 'storeEditKost'])->name('storeEditKost');
+        Route::get('/manageKostRequest', [KostOwnerController::class, 'createManageKostRequest'])->name('manageKostRequest');
+        Route::get('/storeKostRequest/{id}', [KostOwnerController::class, 'storeKostRequest'])->name('storeKostRequest');
     });
 });
 
 Route::group(['middleware' => ['admin']], function () {
     Route::prefix('admin/')->name('admin/')->group(function () {
         Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
+        Route::get('manageKostRequest', [AdminController::class, 'manageKostRequest'])->name('manageKostRequest');
+        Route::post('manageKostRequest', [AdminController::class, 'acceptKostRequest'])->name('manageKostRequest');
+        Route::get('acceptKostOwner/{id}', [AdminController::class, 'acceptKostOwner'])->name('acceptKostOwner');
+        Route::get('manageUserRequest', [AdminController::class, 'manageUserRequest'])->name('manageUserRequest');
     });
 });
 

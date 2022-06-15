@@ -54,14 +54,20 @@
                                 @if (Auth::user())
                                 <ul>
                                     @if (Auth::user()->roleID == 2)
-                                    <li><a href="{{ route('kostOwner/manageKost') }}">Manage Kos</a></li>
+                                    <li><a href="{{ route('kostOwner/dashboard') }}">Manage Kos</a></li>
+                                    <li><a href="{{ route('kostOwner/manageKostRequest') }}">Manage User Request</a></li>
                                     @endif
                                     {{-- <li><a href="#">Manage Transaksi</a></li> --}}
                                     <li><a href="{{ route('kostOwner/updateAccount') }}">Manage Akun</a></li>
                                     @if (Auth::user()->roleID == 3)
                                     <li><a href="#" class="kos-owner">Jadi Kos Owner</a></li>
                                     @endif
-                                    <li><a href="#" class="logout"><i class='bx bxs-user-circle'></i> Logout</a></li>
+                                    <li><form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <a :href="route('logout')"
+                                        onclick="event.preventDefault();
+                                                    this.closest('form').submit();" class="logout"><i class='bx bxs-user-circle'></i> Logout</a>
+                                    </form></li>
                                 </ul>
                                 @endif
                             </div>

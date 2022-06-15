@@ -26,12 +26,6 @@
                         <div class="logo">
                             <span>KostIn</span>
                         </div>
-                        <ul>
-                            <li><a href="{{ route('welcome') }}">Beranda</a></li>
-                            <li><a href="{{ route('area') }}">Area</a></li>
-                            <li><a href="{{ route('kampus') }}">Kampus</a></li>
-                            <li><a href="{{ route('about') }}">Tentang Kami</a></li>
-                        </ul>
                         <!-- With Login -->
                         @if (Auth::user())
                         <div class="btn-akun">
@@ -53,15 +47,9 @@
                             <div class="akun-nav">
                                 @if (Auth::user())
                                 <ul>
-                                    @if (Auth::user()->roleID == 2)
-                                    <li><a href="{{ route('kostOwner/dashboard') }}">Manage Kos</a></li>
-                                    <li><a href="{{ route('kostOwner/manageKostRequest') }}">Manage User Request</a></li>
-                                    @endif
-                                    {{-- <li><a href="#">Manage Transaksi</a></li> --}}
-                                    <li><a href="{{ route('kostOwner/updateAccount') }}">Manage Akun</a></li>
-                                    @if (Auth::user()->roleID == 3)
-                                    <li><a href="#" class="kos-owner">Jadi Kos Owner</a></li>
-                                    @endif
+                                    <li><a href="{{ route('admin/dashboard') }}">Manage Kost Owner Requests</a></li>
+                                    <li><a href="{{ route('admin/manageKostRequest') }}">Manage Kost Requests</a></li>
+                                    <li><a href="{{ route('admin/manageUserRequest') }}">Manage User Requests</a></li>
                                     <li><form action="{{ route('logout') }}" method="POST">
                                         @csrf
                                         <a :href="route('logout')"
@@ -75,42 +63,52 @@
                         <div class="col-xl-9 col-lg-9 col-md-12 no-padding">
                             <div class="akun-layer">
                                 <div class="layer-title">
-                                    <h1>Manage Kos</h1>
-                                    <a href="{{ route('kostOwner/tambahKost') }}"><button>Tambah Kos</button></a>
+                                    <h1>Manage Kost Owner Requests</h1>
                                 </div>
                                 <table id="datatables">
                                     <thead>
                                         <tr>
                                             <td>No</td>
-                                            <td>Nama Kos</td>
-                                            <td>Verified</td>
-                                            <td>Full</td>
+                                            <td>Nama</td>
+                                            <td>Status</td>
+                                            <td>Kost Owner</td>
+                                            <td>Timestamp</td>
                                             <td>Action</td>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($kost as $datas)
+                                        @foreach ($data as $datas)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $datas->kostName }}</td>
+                                            <td>{{ $datas->name }}</td>
                                             <td>
-                                            @if ( $datas->kostApproved == 0)
-                                                Not Verified
-                                            @else
-                                                Verifid
-                                            @endif
+                                                @if( $datas->approved )
+                                                    Accepted
+                                                @else
+                                                    Pending
+                                                @endif
                                             </td>
                                             <td>
-                                                @if ( $datas->kostJumlahPenghuni < $datas->kostJumlahKamar )
-                                                    <button class="false-btn">False</button>
+                                                @if( $datas->owner->name )
+                                                    {{ $datas->owner->name }}
                                                 @else
-                                                    <button class="true-btn">True</button>
+                                                    
                                                 @endif
-                                                </td>
+                                            </td>
+                                            <td>{{ $datas->updated_at }}</td>
                                             <td>
                                                 <button class="default-btn">Detail</button>
-                                                <a href="{{ route('kostOwner/editKost', $datas->kostID) }}"><button class="default-btn">Edit</button></a>
-                                                <button class="default-btn">Delete</button>
+                                                @if ( $datas->acceptedBy )
+                                                    
+                                                @else
+                                                <form action="{{ route('admin/manageKostRequest') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="kostID" value="{{ $datas->id }}">
+                                                    <a :href="route('admin/manageKostRequest')"
+                                                    onclick="event.preventDefault();
+                                                                this.closest('form').submit();"><button class="true-btn">Accept</button></a>
+                                                </form>
+                                                @endif
                                             </td>
                                         </tr>
                                         @endforeach

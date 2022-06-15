@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UpdateAccountRequest;
 use App\Models\AlamatDetail;
 use App\Models\Provinsi;
+use App\Models\Request as ModelsRequest;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
@@ -74,5 +75,21 @@ class UserController extends Controller
             'kodePos' => $data['kodePos'],
         ]);
         $alamat->save();
+    }
+
+    public function requestKostOwner(Request $request)
+    {
+
+        $check = User::where('id', $request->userID)->first();
+        if ($check->alamatID && $check->phone) {
+
+            ModelsRequest::create([
+                'userID' => $request->userID,
+            ]);
+            return redirect('user/dashboard');
+        } else {
+
+            return redirect('user/dashboard');
+        }
     }
 }
